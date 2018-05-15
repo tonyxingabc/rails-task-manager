@@ -1,0 +1,12 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<% if @task.completed %>
+  <input type="checkbox" id="task" checked readonly>
+  <label for="task" readonly>This task is completed</label>
+<% else %>
+  <input type="checkbox" id="task" readonly>
+  <label for="task" readonly>This task is not completed</label>
+<% end %>
+
+<div id="back-to-list"><%= link_to '<i class="fa fa-undo"> Back to list</i>'.html_safe, tasks_path%></div>
+<%= button_to "Edit this task", edit_task_path(@task), :method => :get%>
